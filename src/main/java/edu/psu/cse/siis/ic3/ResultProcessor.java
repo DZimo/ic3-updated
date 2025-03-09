@@ -78,26 +78,13 @@ public class ResultProcessor {
     Timers.v().totalTimer.end();
 
     String statistics =
-        appName + " " + analysisClassesCount + " " + PropagationTimers.v().reachableMethods + " "
-            + PropagationTimers.v().reachableStatements + " " + preciseNonLinking[0] + " "
-            + preciseNonLinking[3] + " " + preciseNonLinking[1] + " " + preciseNonLinking[2] + " "
-            + preciseLinking[0] + " " + preciseLinking[3] + " " + preciseLinking[1] + " "
-            + preciseLinking[2] + " " + imprecise[0] + " " + imprecise[3] + " " + imprecise[1]
-            + " " + imprecise[2] + " " + bottom[0] + " " + bottom[1] + " " + bottom[2] + " "
-            + top[0] + " " + top[1] + " " + top[2] + " " + nonexistent[0] + " " + nonexistent[1]
-            + " " + nonexistent[2] + " " + providerArgument + " " + imprecise[4] + " "
-            + PropagationTimers.v().pathValues + " " + PropagationTimers.v().separatePathValues
-            + " " + PropagationTimers.v().modelParsing.getTime() + " "
-            + Timers.v().mainGeneration.getTime() + " " + Timers.v().entryPointMapping.getTime()
-            + " " + Timers.v().classLoading.getTime() + " "
-            + PropagationTimers.v().problemGeneration.getTime() + " "
-            + PropagationTimers.v().ideSolution.getTime() + " "
-            + PropagationTimers.v().valueComposition.getTime() + " "
-            + PropagationTimers.v().resultGeneration.getTime() + " "
-            + (PropagationTimers.v().soot.getTime() - PropagationTimers.v().totalTimer.getTime())
-            + " " + (Timers.v().misc.getTime() + PropagationTimers.v().misc.getTime()) + " "
-            /* + PropagationTimers.v().argumentValueTime + " " */+ Timers.v().totalTimer.getTime()
-            + "\n";
+        appName + " Leak: " + intentWithData
+                + " LeakNonLinking: "+ this.preciseNonLinking[3]
+                + " NonLinking: "+ this.preciseNonLinking[2]
+                + " LeakLinking: "+ this.preciseLinking[3]
+                + " Linking: "+ this.preciseLinking[2]
+                + " LeakImprecise: "+ this.imprecise[3]
+                + " Imprecise: "+ this.imprecise[4];
 
     if (logger.isInfoEnabled()) {
       logger.info(statistics);

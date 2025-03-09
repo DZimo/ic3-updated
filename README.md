@@ -1,4 +1,13 @@
-IC3: Inter-Component Communication Analysis with COAL
-=====================================================
+## Updates
 
-For instructions, see [http://siis.cse.psu.edu/ic3/](http://siis.cse.psu.edu/ic3/).
+- Disabled timing logs and enabled leaks log.
+
+- Ignore SLF4J warning.
+
+- To build a full jar with dependencies run: 
+
+>mvn clean compile package -P standalone.
+
+
+
+
