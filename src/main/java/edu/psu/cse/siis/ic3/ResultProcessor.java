@@ -77,6 +77,13 @@ public class ResultProcessor {
 
     Timers.v().totalTimer.end();
 
+    int implicitCount = 0, explicitCount = 0, intentCount;
+
+    for (int j : this.preciseLinking) explicitCount += j;
+    for (int j : this.preciseNonLinking) explicitCount += j;
+    for (int j : this.imprecise) implicitCount += j;
+    intentCount = implicitCount + explicitCount;
+
     String statistics =
         appName + " Leak: " + intentWithData
                 + " LeakNonLinking: "+ this.preciseNonLinking[3]
@@ -84,7 +91,10 @@ public class ResultProcessor {
                 + " LeakLinking: "+ this.preciseLinking[3]
                 + " Linking: "+ this.preciseLinking[2]
                 + " LeakImprecise: "+ this.imprecise[3]
-                + " Imprecise: "+ this.imprecise[4];
+                + "Implicit: " + implicitCount
+                + "Explicit: " + explicitCount
+                + "Intent: " + intentCount;
+
 
     if (logger.isInfoEnabled()) {
       logger.info(statistics);
