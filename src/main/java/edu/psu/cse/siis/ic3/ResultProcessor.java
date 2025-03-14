@@ -91,9 +91,9 @@ public class ResultProcessor {
                 + " LeakLinking: "+ this.preciseLinking[3]
                 + " Linking: "+ this.preciseLinking[2]
                 + " LeakImprecise: "+ this.imprecise[3]
-                + "Implicit: " + implicitCount
-                + "Explicit: " + explicitCount
-                + "Intent: " + intentCount;
+                + "#ICC# " + implicitCount
+                + " " + explicitCount
+                + " " + intentCount;
 
 
     if (logger.isInfoEnabled()) {
